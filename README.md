@@ -1,2 +1,3 @@
 # milestone
-CST-323 Milestone Project  Contributers: Jonah Lage & Owen Mount
+CST-323 Milestone Project<br>
+Contributers: @jonahlage & @fletchly
