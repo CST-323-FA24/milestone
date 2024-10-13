@@ -1,0 +1,16 @@
+body {
+    font-family: 'Times New Roman', Times, serif; /* Elegant serif font */
+    color: #333; /* Dark grey color for text */
+}
+
+.navbar {
+    background-color: #000; /* Dark background for the navbar */
+}
+
+.nav-link, .navbar-brand {
+    color: #fff !important; /* White text for readability */
+}
+
+.container {
+    max-width: 960px; /* Constrain container width for better aesthetics */
+}
