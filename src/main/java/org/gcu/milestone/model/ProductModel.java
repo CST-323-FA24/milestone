@@ -29,6 +29,10 @@ public class ProductModel
         this.quantity = quantity;
     }
 
+    // --------------------------------------------
+    // Getters and Setters
+    // --------------------------------------------
+    
     public long getId()
     {
         return id;
