@@ -1,9 +1,16 @@
 package org.gcu.milestone.data.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
-public interface DataEntity<ID>
+@Getter
+@Setter
+@MappedSuperclass
+public abstract class DataEntity<ID>
 {
-    public ID getId();
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private ID id;
 }

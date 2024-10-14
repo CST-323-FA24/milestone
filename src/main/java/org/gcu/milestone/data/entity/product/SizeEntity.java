@@ -9,17 +9,11 @@ import org.gcu.milestone.data.entity.DataEntity;
 @Setter
 @Entity
 @Table(name = "sizes")
-public class SizeEntity implements DataEntity<Long>
+public class SizeEntity extends DataEntity<Long>
 {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Long id;
-
     @Column(name = "name", length = 100)
     private String name;
 
     @Column(name = "value")
     private Integer value;
-
 }

@@ -9,14 +9,8 @@ import org.gcu.milestone.data.entity.DataEntity;
 @Setter
 @Entity
 @Table(name = "colors")
-public class ColorEntity implements DataEntity<Long>
+public class ColorEntity extends DataEntity<Long>
 {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Long id;
-
     @Column(name = "name", nullable = false, length = 100)
     private String name;
-
 }

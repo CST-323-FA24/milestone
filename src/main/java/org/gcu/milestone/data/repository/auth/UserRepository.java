@@ -1,10 +1,10 @@
 package org.gcu.milestone.data.repository.auth;
 
-import org.gcu.milestone.data.entity.auth.UserEntity;
+import org.gcu.milestone.data.entity.DataEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends CrudRepository<UserEntity, String>
+public interface UserRepository extends CrudRepository<DataEntity<String>, String>
 {
 }

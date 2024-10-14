@@ -11,17 +11,11 @@ import java.math.BigDecimal;
 @Setter
 @Entity
 @Table(name = "products")
-public class ProductEntity implements DataEntity<Long>
+public class ProductEntity extends DataEntity<Long>
 {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Long id;
-
     @Column(name = "name", nullable = false, length = 100)
     private String name;
 
-    @Lob
     @Column(name = "description")
     private String description;
 

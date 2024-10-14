@@ -6,7 +6,7 @@ import org.gcu.milestone.data.service.DataService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ColorDataService extends DataService<ColorEntity, Long>
+public class ColorDataService extends DataService<Long>
 {
     public ColorDataService(ColorRepository repository)
     {

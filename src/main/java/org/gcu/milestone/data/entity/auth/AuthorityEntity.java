@@ -9,13 +9,8 @@ import org.gcu.milestone.data.entity.DataEntity;
 @Setter
 @Entity
 @Table(name = "authorities")
-public class AuthorityEntity implements DataEntity<Long>
+public class AuthorityEntity extends DataEntity<Long>
 {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Long id;
-
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "username", nullable = false)
     private UserEntity username;

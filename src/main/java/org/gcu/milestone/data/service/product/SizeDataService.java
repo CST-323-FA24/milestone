@@ -6,7 +6,7 @@ import org.gcu.milestone.data.service.DataService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class SizeDataService extends DataService<SizeEntity, Long>
+public class SizeDataService extends DataService<Long>
 {
     public SizeDataService(SizeRepository repository)
     {

@@ -1,24 +1,25 @@
 package org.gcu.milestone.data.service;
 
 import org.gcu.milestone.data.DataAccessInterface;
+import org.gcu.milestone.data.entity.DataEntity;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class DataService<T, ID> implements DataAccessInterface<T>
+public abstract class DataService<ID> implements DataAccessInterface<ID>
 {
-    final CrudRepository<T, ID> repository;
+    final CrudRepository<DataEntity<ID>, ID> repository;
 
-    public DataService(CrudRepository<T, ID> repository)
+    public DataService(CrudRepository<DataEntity<ID>, ID> repository)
     {
         this.repository = repository;
     }
 
     @Override
-    public List<T> findAll()
+    public List<DataEntity<ID>> findAll()
     {
-        var resultSet = new ArrayList<T>();
+        var resultSet = new ArrayList<DataEntity<ID>>();
 
         try
         {
@@ -34,25 +35,25 @@ public abstract class DataService<T, ID> implements DataAccessInterface<T>
     }
 
     @Override
-    public T findById(Long id)
+    public DataEntity<ID> findById(ID id)
     {
         return null;
     }
 
     @Override
-    public boolean create(T productEntity)
+    public boolean create(DataEntity<ID> entity)
     {
         return false;
     }
 
     @Override
-    public boolean update(T productEntity)
+    public boolean update(DataEntity<ID> productEntity)
     {
         return false;
     }
 
     @Override
-    public boolean delete(T productEntity)
+    public boolean delete(DataEntity<ID> productEntity)
     {
         return false;
     }
