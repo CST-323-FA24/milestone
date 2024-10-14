@@ -3,6 +3,7 @@ package org.gcu.milestone.data.entity.product;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.gcu.milestone.data.entity.DataEntity;
 
 import java.math.BigDecimal;
 
@@ -10,12 +11,12 @@ import java.math.BigDecimal;
 @Setter
 @Entity
 @Table(name = "products")
-public class ProductEntity
+public class ProductEntity implements DataEntity<Long>
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private Integer id;
+    private Long id;
 
     @Column(name = "name", nullable = false, length = 100)
     private String name;

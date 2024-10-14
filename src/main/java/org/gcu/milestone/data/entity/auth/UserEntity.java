@@ -6,12 +6,15 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
+import org.gcu.milestone.data.entity.DataEntity;
+
+import java.io.Serializable;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "users")
-public class UserEntity
+public class UserEntity implements DataEntity<String>
 {
     @Id
     @Column(name = "username", nullable = false, length = 50)
@@ -32,4 +35,9 @@ public class UserEntity
     @Column(name = "email", length = 200)
     private String email;
 
+    @Override
+    public String getId()
+    {
+        return username;
+    }
 }
