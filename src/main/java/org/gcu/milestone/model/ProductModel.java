@@ -18,4 +18,8 @@ public class ProductModel
     private String description;
     private float price;
     private int quantity;
+    private String brand;
+    private String size;
+    private String color;
+    private String category;
 }
