@@ -1,4 +1,4 @@
-package org.gcu.milestone.data.config;
+package org.gcu.milestone.config;
 
 import org.springframework.context.annotation.Configuration;
 
