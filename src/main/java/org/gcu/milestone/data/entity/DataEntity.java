@@ -7,10 +7,10 @@ import lombok.Setter;
 @Getter
 @Setter
 @MappedSuperclass
-public abstract class DataEntity<ID>
+public abstract class DataEntity
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private ID id;
+    private Long id;
 }

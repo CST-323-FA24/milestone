@@ -1,5 +1,6 @@
 package org.gcu.milestone.business;
 
+import org.gcu.milestone.data.entity.DataEntity;
 import org.gcu.milestone.data.entity.product.ProductEntity;
 import org.gcu.milestone.data.repository.product.*;
 import org.gcu.milestone.data.service.product.*;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
 
 @Service
@@ -39,11 +41,30 @@ public class ProductsBusinessService
 
     public List<ProductModel> getAllProducts()
     {
-        var products = productDataService.findAll();
+        var products = productDataService.findAllProducts();
+        var productsDomain = new ArrayList<ProductEntity>();
+        var resultSet = new ArrayList<ProductModel>();
 
-        for(ProductEntity product : products)
+        for(var product : products)
         {
-
+            productsDomain.add((ProductEntity) product);
         }
+
+        for (var product : productsDomain)
+        {
+            resultSet.add(new ProductModel(
+                    product.getId(),
+                    product.getName(),
+                    product.getDescription(),
+                    product.getPrice(),
+                    product.getQuantity(),
+                    product.getBrands().getName(),
+                    product.getSizes().getName(),
+                    product.getColors().getName(),
+                    product.getCategories().getName()
+            ));
+        }
+
+        return resultSet;
     }
 }

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class UserDataService extends DataService<String>
+public class UserDataService extends DataService
 {
     public UserDataService(UserRepository repository)
     {

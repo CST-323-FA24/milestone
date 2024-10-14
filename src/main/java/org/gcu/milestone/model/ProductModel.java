@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 /**
  * Product model class
  */
@@ -16,7 +18,7 @@ public class ProductModel
     private long id;
     private String name;
     private String description;
-    private float price;
+    private BigDecimal price;
     private int quantity;
     private String brand;
     private String size;

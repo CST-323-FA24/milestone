@@ -9,7 +9,7 @@ import org.gcu.milestone.data.entity.DataEntity;
 @Setter
 @Entity
 @Table(name = "authorities")
-public class AuthorityEntity extends DataEntity<Long>
+public class AuthorityEntity extends DataEntity
 {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "username", nullable = false)

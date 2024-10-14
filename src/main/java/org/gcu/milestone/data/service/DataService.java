@@ -10,14 +10,13 @@ import java.util.List;
 
 /**
  * Data service class
- * @param <ID> ID type for target entities
  */
 @Slf4j
-public abstract class DataService<ID> implements DataAccessInterface<ID>
+public abstract class DataService implements DataAccessInterface
 {
-    final CrudRepository<DataEntity<ID>, ID> repository;
+    protected final CrudRepository<DataEntity, Long> repository;
 
-    public DataService(CrudRepository<DataEntity<ID>, ID> repository)
+    public DataService(CrudRepository<DataEntity, Long> repository)
     {
         this.repository = repository;
     }
@@ -27,9 +26,9 @@ public abstract class DataService<ID> implements DataAccessInterface<ID>
      * @return Table rows as a list
      */
     @Override
-    public List<DataEntity<ID>> findAll()
+    public List<DataEntity> findAll()
     {
-        var resultSet = new ArrayList<DataEntity<ID>>();
+        var resultSet = new ArrayList<DataEntity>();
 
         // Attempt to read from table
         try
@@ -39,6 +38,7 @@ public abstract class DataService<ID> implements DataAccessInterface<ID>
         }
         catch (Exception e) // Log failure
         {
+            e.printStackTrace();
             log.error("{} (Returning empty list)", e.getMessage());
         }
 
@@ -51,7 +51,7 @@ public abstract class DataService<ID> implements DataAccessInterface<ID>
      * @return Entity representing row, or null if it does not exist
      */
     @Override
-    public DataEntity<ID> findById(ID id)
+    public DataEntity findById(Long id)
     {
         return repository.findById(id).orElse(null);
     }
@@ -62,7 +62,7 @@ public abstract class DataService<ID> implements DataAccessInterface<ID>
      * @return Boolean representing success/failure
      */
     @Override
-    public boolean create(DataEntity<ID> entity)
+    public boolean create(DataEntity entity)
     {
         // Set entity ID to null to force insert
         entity.setId(null);
@@ -87,7 +87,7 @@ public abstract class DataService<ID> implements DataAccessInterface<ID>
      * @return Boolean representing success/failure
      */
     @Override
-    public boolean update(DataEntity<ID> entity)
+    public boolean update(DataEntity entity)
     {
         if (repository.findById(entity.getId()).isPresent())
         {
@@ -110,7 +110,7 @@ public abstract class DataService<ID> implements DataAccessInterface<ID>
      * @return Boolean representing success/failure
      */
     @Override
-    public boolean delete(DataEntity<ID> entity)
+    public boolean delete(DataEntity entity)
     {
         try
         {

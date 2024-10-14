@@ -6,7 +6,7 @@ import org.gcu.milestone.data.service.DataService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AuthorityDataService extends DataService<Long>
+public class AuthorityDataService extends DataService
 {
     public AuthorityDataService(AuthorityRepository repository)
     {

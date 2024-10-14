@@ -9,7 +9,7 @@ import org.gcu.milestone.data.entity.DataEntity;
 @Setter
 @Entity
 @Table(name = "colors")
-public class ColorEntity extends DataEntity<Long>
+public class ColorEntity extends DataEntity
 {
     @Column(name = "name", nullable = false, length = 100)
     private String name;

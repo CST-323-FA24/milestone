@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 @Setter
 @Entity
 @Table(name = "products")
-public class ProductEntity extends DataEntity<Long>
+public class ProductEntity extends DataEntity
 {
     @Column(name = "name", nullable = false, length = 100)
     private String name;

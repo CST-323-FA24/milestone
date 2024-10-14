@@ -9,7 +9,7 @@ import org.gcu.milestone.data.entity.DataEntity;
 @Setter
 @Entity
 @Table(name = "users")
-public class UserEntity extends DataEntity<String>
+public class UserEntity extends DataEntity
 {
     @Column(name = "username", nullable = false, unique = true)
     private String username;

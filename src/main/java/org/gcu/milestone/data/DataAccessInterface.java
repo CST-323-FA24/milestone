@@ -4,15 +4,15 @@ import org.gcu.milestone.data.entity.DataEntity;
 
 import java.util.List;
 
-public interface DataAccessInterface<ID>
+public interface DataAccessInterface
 {
-    List<DataEntity<ID>> findAll();
+    List<DataEntity> findAll();
 
-    DataEntity<ID> findById(ID id);
+    DataEntity findById(Long id);
 
-    boolean create(DataEntity<ID> t);
+    boolean create(DataEntity t);
 
-    boolean update(DataEntity<ID> t);
+    boolean update(DataEntity t);
 
-    boolean delete(DataEntity<ID> t);
+    boolean delete(DataEntity t);
 }
