@@ -1,47 +1,49 @@
 package org.gcu.milestone.data.entity.product;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+import java.math.BigDecimal;
+
+@Getter
+@Setter
 @Entity
 @Table(name = "products")
 public class ProductEntity
 {
-    // Class level properties
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "id", nullable = false)
+    private Integer id;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false, length = 100)
     private String name;
 
+    @Lob
     @Column(name = "description")
     private String description;
 
-    @Column(name = "price")
-    private float price;
+    @Column(name = "price", nullable = false, precision = 15, scale = 2)
+    private BigDecimal price;
 
-    @Column(name = "quantity")
-    private int quantity;
+    @Column(name = "quantity", nullable = false)
+    private Integer quantity;
 
-    @ManyToOne
-    @JoinColumn(name = "brands_id")
-    private BrandEntity brand;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "brands_id", nullable = false)
+    private BrandEntity brands;
 
-    @ManyToOne
-    @JoinColumn(name = "categories_id")
-    private CategoryEntity category;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "categories_id", nullable = false)
+    private CategoryEntity categories;
 
-    @ManyToOne
-    @JoinColumn(name = "sizes_id")
-    private SizeEntity size;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "sizes_id", nullable = false)
+    private SizeEntity sizes;
 
-    @ManyToOne
-    @JoinColumn(name = "colors_id")
-    private ColorEntity color;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "colors_id", nullable = false)
+    private ColorEntity colors;
+
 }
