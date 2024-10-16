@@ -1,7 +1,6 @@
 package org.gcu.milestone.data.entity;
 
-import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.*;
 import lombok.Getter;
 
 @Getter
@@ -9,5 +8,7 @@ import lombok.Getter;
 public abstract class Entity
 {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private Long id;
 }
