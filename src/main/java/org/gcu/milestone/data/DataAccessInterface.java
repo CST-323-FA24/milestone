@@ -1,6 +1,7 @@
 package org.gcu.milestone.data;
 
 import java.util.List;
+import org.gcu.milestone.data.entity.Entity;
 
 public interface DataAccessInterface<T>
 {

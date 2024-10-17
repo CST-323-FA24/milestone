@@ -3,16 +3,18 @@ package org.gcu.milestone.data.service;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.gcu.milestone.data.DataAccessInterface;
-import org.springframework.data.repository.CrudRepository;
+import org.gcu.milestone.data.entity.Entity;
+import org.gcu.milestone.data.repository.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Slf4j
 @AllArgsConstructor
-public abstract class DataService<T> implements DataAccessInterface<T>
+public class DataService<T extends Entity> implements DataAccessInterface<T>
 {
-    private CrudRepository<T, Long> repository;
+    Repository<T> repository;
 
     @Override
     public List<T> findAll()
@@ -21,12 +23,11 @@ public abstract class DataService<T> implements DataAccessInterface<T>
 
         try
         {
-            var resultIterable = repository.findAll();
-            resultIterable.forEach(resultSet::add);
+            repository.findAll().forEach(resultSet::add);
         }
         catch (Exception e)
         {
-            log.error("{} (Returning empty list)", e.getMessage());
+            log.error(e.getMessage());
         }
 
         return resultSet;
@@ -35,24 +36,56 @@ public abstract class DataService<T> implements DataAccessInterface<T>
     @Override
     public T findById(Long id)
     {
-        return null;
+        return repository.findById(id).orElse(null);
     }
 
     @Override
-    public boolean create(T t)
+    public boolean create(T entity)
     {
-        return false;
+        entity.setId(null);
+
+        try
+        {
+            repository.save(entity);
+        }
+        catch (Exception e)
+        {
+            log.error(e.getMessage());
+            return false;
+        }
+
+        return true;
     }
 
     @Override
-    public boolean update(T t)
+    public boolean update(T entity)
     {
-        return false;
+        try
+        {
+            repository.save(entity);
+        }
+        catch (Exception e)
+        {
+            log.error(e.getMessage());
+            return false;
+        }
+
+        return true;
     }
 
     @Override
-    public boolean delete(T t)
+    public boolean delete(T entity)
     {
-        return false;
+        try
+        {
+            repository.delete(entity);
+        }
+        catch (Exception e)
+        {
+            log.error(e.getMessage());
+            return false;
+        }
+
+        return true;
     }
 }
