@@ -17,9 +17,31 @@ public class ProductsBusinessService
     @Autowired
     private final ProductDataService productDataService;
 
-
     public ProductsBusinessService(ProductDataService productDataService)
     {
         this.productDataService = productDataService;
+    }
+
+    public List<ProductModel> getProducts()
+    {
+        var resultSet = new ArrayList<ProductModel>();
+        var entitySet = productDataService.findAll();
+
+        for (ProductEntity productEntity : entitySet)
+        {
+            resultSet.add(new ProductModel(
+                    productEntity.getId(),
+                    productEntity.getName(),
+                    productEntity.getDescription(),
+                    productEntity.getPrice(),
+                    productEntity.getQuantity(),
+                    productEntity.getBrands().getName(),
+                    productEntity.getSizes().getName(),
+                    productEntity.getColors().getName(),
+                    productEntity.getCategories().getName()
+            ));
+        }
+
+        return resultSet;
     }
 }

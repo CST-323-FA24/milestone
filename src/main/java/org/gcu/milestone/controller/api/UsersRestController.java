@@ -25,7 +25,7 @@ public class UsersRestController
     {
         try
         {
-            List<ProductModel> products = productsBusinessService.getAllProducts();
+            List<ProductModel> products = productsBusinessService.getProducts();
             if (products.isEmpty())
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             else
