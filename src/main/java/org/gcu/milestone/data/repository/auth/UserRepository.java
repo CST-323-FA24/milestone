@@ -5,4 +5,5 @@ import org.gcu.milestone.data.repository.Repository;
 
 public interface UserRepository extends Repository<UserEntity>
 {
+    public UserEntity findByUsername(String username);
 }

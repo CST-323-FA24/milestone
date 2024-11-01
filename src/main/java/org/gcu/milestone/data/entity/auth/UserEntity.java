@@ -2,9 +2,13 @@ package org.gcu.milestone.data.entity.auth;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -29,5 +33,8 @@ public class UserEntity extends org.gcu.milestone.data.entity.Entity
 
     @Column(name = "email", length = 200)
     private String email;
+
+    @OneToMany(mappedBy = "username")
+    private Set<AuthorityEntity> authorities = new LinkedHashSet<>();
 
 }

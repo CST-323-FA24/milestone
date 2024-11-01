@@ -1,4 +1,4 @@
-package org.gcu.milestone.model;
+package org.gcu.milestone.model.product;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

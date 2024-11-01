@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 public class DataService<T extends Entity> implements DataAccessInterface<T>
 {
-    Repository<T> repository;
+    protected Repository<T> repository;
 
     @Override
     public List<T> findAll()
