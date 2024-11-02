@@ -9,6 +9,6 @@ public class WebMvcConfig
 {
     public void addViewControllers(ViewControllerRegistry registry)
     {
-        registry.addViewController("/").setViewName("index");
+
     }
 }
