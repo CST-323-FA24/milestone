@@ -1,6 +1,6 @@
 package org.gcu.milestone.business;
 
-import org.gcu.milestone.data.entity.product.ProductEntity;
+import org.gcu.milestone.data.entity.product.*;
 import org.gcu.milestone.data.service.product.*;
 import org.gcu.milestone.model.product.ProductModel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,5 +58,34 @@ public class ProductsBusinessService
         }
 
         return resultSet;
+    }
+
+    public boolean newProduct(ProductModel productModel)
+    {
+        // Create new product entity and initialize all fields
+        ProductEntity productEntity = new ProductEntity();
+
+        BrandEntity brandEntity = new BrandEntity();
+        brandEntity.setName(productModel.getBrand());
+
+        ColorEntity colorEntity = new ColorEntity();
+        colorEntity.setName(productModel.getColor());
+
+        CategoryEntity categoryEntity = new CategoryEntity();
+        categoryEntity.setName(productModel.getCategory());
+
+        SizeEntity sizeEntity = new SizeEntity();
+        sizeEntity.setName(productModel.getSize());
+
+        productEntity.setName(productModel.getName());
+        productEntity.setDescription(productModel.getDescription());
+        productEntity.setPrice(productModel.getPrice());
+        productEntity.setQuantity(productModel.getQuantity());
+        productEntity.setBrands(brandEntity);
+        productEntity.setColors(colorEntity);
+        productEntity.setSizes(sizeEntity);
+        productEntity.setCategories(categoryEntity);
+
+        return productDataService.create(productEntity);
     }
 }

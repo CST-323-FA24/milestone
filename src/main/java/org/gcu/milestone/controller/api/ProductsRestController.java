@@ -64,4 +64,19 @@ public class ProductsRestController
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @PostMapping("/new")
+    public ResponseEntity<?> newProduct(@RequestBody ProductModel product)
+    {
+        try
+        {
+            productsBusinessService.newProduct(product);
+            return new ResponseEntity<>(HttpStatus.CREATED);
+        }
+        catch (Exception e)
+        {
+            log.error(e.getMessage());
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
