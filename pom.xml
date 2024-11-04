@@ -68,6 +68,12 @@
             <artifactId>postgresql</artifactId>
             <version>42.6.0</version> 
         </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>webjars-locator</artifactId>
+            <version>0.44</version>
+        </dependency>
+
 
     </dependencies>
 
