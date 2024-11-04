@@ -6,8 +6,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class HomeController {
 
     @GetMapping("/")
-    public String index() {
-        return "index.html"; // This will serve the React app from static files
+    public String home() {
+        return "index";
+    }
+    
+    // Fallback for other routes to allow React to handle routing
+    @GetMapping("/**")
+    public String forwardToReact() {
+        return "forward:/index.html";
     }
 }
 
