@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class HomeController {
 
     @GetMapping("/")
-    @ResponseBody
-    public String home() {
-        return "Welcome to the Milestone Application!";
+    public String index() {
+        return "index.html"; // This will serve the React app from static files
     }
 }
+
