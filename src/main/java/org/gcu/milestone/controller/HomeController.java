@@ -9,7 +9,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String home() {
-        return "forward:/index.html";
+        return "index.html";
     }
 
     // Fallback for all other routes to allow React to handle client-side routing
