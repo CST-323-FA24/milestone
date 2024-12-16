@@ -1,38 +1,44 @@
+/* Main container styles */
 .App {
   text-align: center;
 }
 
+/* Logo styles */
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  height: 40vmin; /* Responsive logo height */
+  pointer-events: none; /* Prevent interaction with the logo */
 }
 
+/* Add animation to the logo when reduced motion is not preferred */
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 20s linear; /* Infinite spin with 20s duration */
   }
 }
 
+/* Header styles */
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #282c34; /* Dark background color */
+  min-height: 100vh; /* Full viewport height */
+  display: flex; /* Enable Flexbox layout */
+  flex-direction: column; /* Arrange children vertically */
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  font-size: calc(10px + 2vmin); /* Dynamic font size */
+  color: white; /* White text color */
 }
 
+/* Link styles */
 .App-link {
-  color: #61dafb;
+  color: #61dafb; /* Light blue color for links */
 }
 
+/* Keyframes for logo spin animation */
 @keyframes App-logo-spin {
   from {
-    transform: rotate(0deg);
+    transform: rotate(0deg); /* Initial rotation */
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(360deg); /* Full rotation */
   }
 }
